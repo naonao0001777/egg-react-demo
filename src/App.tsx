@@ -38,7 +38,7 @@ import image17 from './images/square/17.jpg'
 function App() {
   return (
     <>
-      <body className='has-background-primary-light is-unselectable'>
+      <body className='has-background-primary-light is-unselectable max-width'>
         {/* has-background-dark */}
         <div className='container'>
           <section className="section is-medium">
@@ -63,7 +63,8 @@ function App() {
                   <div className="tile">
                     <div className="tile is-parent is-vertical">
                       <article className="tile is-child notification is-primary">
-                        <h1 className="title">Feel free to request🐤</h1>
+                        <h1 className="title">Feel free to request!🐤</h1>
+                        <h2 className="subtitle">DM for work request📨</h2>
                       </article>
                     </div>
                   </div>
@@ -72,20 +73,10 @@ function App() {
             </div>
           </section>
           <section className="section is-medium-desktop is-unselectable">
-            <h1 className='title is-4 tag is-dark'>Album</h1>
             <Humberger />
           </section>
         </div >
       </body >
-      <footer className='footer has-background-info-dark'>
-        <div className="has-text-right-desktop hax-text-center-mobile hax-text-center-tablet-only">
-          <p className='has-text-white is-unselectable'>
-            {/* <AiFillGithub /> */}
-            Made by <a className="has-text-white-ter" href="https://twitter.com/nyaoisnao" target="_blank" rel="noopener noreferrer">nao</a> with<span> </span>
-            <img src="https://bulma.io/assets/Bulma%20Logo%20White.png" width="70" height="38" is-unselectable />
-          </p>
-        </div>
-      </footer>
     </>
   );
 }
@@ -161,11 +152,36 @@ const Humberger = () => {
   const [value, setValue] = useState("Landscape")
 
   const handleLandScape = () => setValue("Landscape");
-  const handleVertical = () => setValue("Vertival");
+  const handleVertical = () => setValue("Vertical");
   const handleSquare = () => setValue("Square");
 
   return (
     <>
+      <div>{
+        value === "Landscape" ? (
+          <Fragment>
+            <h1 className='title is-4 tag is-dark'>
+              Landscape
+            </h1>
+          </Fragment>
+        ) : value === "Vertical" ? (
+          <Fragment>
+            <h1 className='title is-4 tag is-dark'>
+              Vertical
+            </h1>
+          </Fragment>
+        ) : value === "Square" ? (
+          <Fragment>
+            <h1 className='title is-4 tag is-dark'>
+              Square
+            </h1>
+          </Fragment>
+        ) : (
+          <></>
+        )
+      }
+      </div>
+
       <nav className="breadcrumb is-start" aria-label="breadcrumbs">
         <ul>
           <li><a href='#' onClick={handleLandScape}>Landscape</a></li>
@@ -173,114 +189,116 @@ const Humberger = () => {
           <li><a href='#' onClick={handleSquare}>Square</a></li>
         </ul>
       </nav>
-      <Transition in={value} timeout={500}>
-        <div>{
-          value === "Landscape" ? (
-            <Fragment>
-              <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image1} className="" alt="logo" />
-                  </figure>
+      <TransitionGroup className="todo-list">
+        <CSSTransition in={value} timeout={500} className="">
+          <div>{
+            value === "Landscape" ? (
+              <Fragment>
+                <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image1} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image2} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image3} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image4} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image5} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image6} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image7} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image8} className="" alt="logo" />
+                    </figure>
+                  </div>
                 </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image2} className="" alt="logo" />
-                  </figure>
+              </Fragment>
+            ) : value === "Vertical" ? (
+              <Fragment>
+                <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image9} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image10} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image11} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image12} className="" alt="logo" />
+                    </figure>
+                  </div>
                 </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image3} className="" alt="logo" />
-                  </figure>
+              </Fragment>
+            ) : value === "Square" ? (
+              <Fragment>
+                <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image13} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image14} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image15} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image16} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image17} className="" alt="logo" />
+                    </figure>
+                  </div>
                 </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image4} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image5} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image6} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image7} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image8} className="" alt="logo" />
-                  </figure>
-                </div>
-              </div>
-            </Fragment>
-          ) : value === "Vertival" ? (
-            <Fragment>
-              <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
-                <div className='m-3'>
-                  <figure className="image-long">
-                    <img src={image9} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-long">
-                    <img src={image10} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-long">
-                    <img src={image11} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-long">
-                    <img src={image12} className="" alt="logo" />
-                  </figure>
-                </div>
-              </div>
-            </Fragment>
-          ) : value === "Square" ? (
-            <Fragment>
-              <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
-                <div className='m-3'>
-                  <figure className="image is-200x200">
-                    <img src={image13} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image is-200x200">
-                    <img src={image14} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image is-200x200">
-                    <img src={image15} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image is-200x200">
-                    <img src={image16} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image is-200x200">
-                    <img src={image17} className="" alt="logo" />
-                  </figure>
-                </div>
-              </div>
-            </Fragment>
-          ) : (
-            <></>
-          )
-        }
-        </div>
-      </Transition>
+              </Fragment>
+            ) : (
+              <></>
+            )
+          }
+          </div>
+        </CSSTransition>
+      </TransitionGroup>
     </>
   );
 }

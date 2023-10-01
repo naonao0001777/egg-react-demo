@@ -5,14 +5,15 @@ $section-my-padding: 2rem 2rem;
 $section-padding-my-medium: 3rem 3rem;
 $footer-padding-my-style: 1rem 1rem 1rem;
 
+
 // Bulma sass
 $section-padding: $section-my-padding;
 $section-padding-medium: $section-padding-my-medium;
 $footer-padding: $footer-padding-my-style;
 
-
 // import Sassファイル
 @import "../../node_modules/bulma/sass/layout/section.sass";
 @import "../../node_modules/bulma/sass/layout/footer.sass";
 @import "../../node_modules/bulma/sass/elements/other.sass";
+@import "../../node_modules/bulma/sass/base/generic.sass";
 @import "../../node_modules/bulma/bulma.sass";
