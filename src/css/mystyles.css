@@ -17,7 +17,6 @@
 .footer {
   background-color: hsl(0, 0%, 98%);
   padding: 1rem 1rem 1rem;
-  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
@@ -1878,6 +1877,12 @@ div.icon-text {
   height: auto;
   width: 100%;
   border-radius: 15px;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-touch-callout: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .image-long {
@@ -1892,6 +1897,12 @@ div.icon-text {
   height: auto;
   width: 100%;
   border-radius: 15px;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-touch-callout: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .image {
@@ -10344,7 +10355,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .footer {
   background-color: hsl(0, 0%, 98%);
   padding: 1rem 1rem 1rem;
-  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;

@@ -18,16 +18,16 @@ import soundClick from './sounds/mouse-click.mp3'
 function App() {
   return (
     <>
-      <header className="">
-        {/* <nav className="navbar" role="navigation" aria-label="main navigation">
+      {/* <header className="">
+        <nav className="navbar has-background-info-dark" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="#">
-              <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+              <h1 className='title'>🐣Egg House</h1>
             </a>
           </div>
-        </nav> */}
-      </header>
-      <body className='has-background-primary-light'>
+        </nav>
+      </header> */}
+      <body className='has-background-primary-light is-unselectable'>
         {/* has-background-dark */}
         <div className='container'>
           <section className="section is-medium">
@@ -42,7 +42,7 @@ function App() {
                 </h2>
                 <IconContext.Provider value={{ size: '30px' }}>
                   <a className='' href='https://twitter.com/egg_is_blue' target="_blank" rel="noopener noreferrer">
-                    <RiTwitterFill />
+                    <RiTwitterXLine />
                   </a>
                 </IconContext.Provider>
               </div>
@@ -53,23 +53,59 @@ function App() {
           </section>
           <section className="section is-medium">
             <h1 className='title is-4 '>Album</h1>
+            <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between is-unselectable'>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image1} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image1} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image1} className="" alt="logo" />
+                </figure>
+              </div>
+            </div>
             <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
-              <MainIllusts />
-              <MainIllusts />
-              <MainIllusts />
-              <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
-                <SubIllust />
+              <div className='m-3'>
+                <figure className="image-long">
+                  <img src={image2} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-long">
+                  <img src={image2} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-long">
+                  <img src={image2} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-long">
+                  <img src={image2} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-long">
+                  <img src={image2} className="" alt="logo" />
+                </figure>
               </div>
             </div>
           </section>
-        </div>
-      </body>
+        </div >
+      </body >
       <footer className='footer has-background-info-dark'>
         <div className="has-text-right">
-          <p>
+          <p className='has-text-white is-unselectable'>
             {/* <AiFillGithub /> */}
-            by <a className="has-text-white-ter" href="https://twitter.com/nyaoisnao" target="_blank" rel="noopener noreferrer">nao</a> with<span> </span>
-            <img src="https://bulma.io/images/bulma-logo.png" width="70" height="38" />
+            Made by <a className="has-text-white-ter" href="https://twitter.com/nyaoisnao" target="_blank" rel="noopener noreferrer">nao</a> with<span> </span>
+            <img src="https://bulma.io/assets/Bulma%20Logo%20White.png" width="70" height="38" is-unselectable />
           </p>
         </div>
       </footer>
