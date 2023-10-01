@@ -5,12 +5,17 @@ import './css/mystyles.css'
 import { RiTwitterFill } from 'react-icons/ri'
 import { AiFillGithub } from 'react-icons/ai'
 import { RiTwitterXLine } from 'react-icons/ri'
+import { LuMailCheck } from 'react-icons/lu'
+import { IoMail } from 'react-icons/io5'
+import { VscCircleLargeFilled, VscCircleLarge } from 'react-icons/vsc'
 import { IconContext } from 'react-icons'
 import { useEffect, Fragment, useState, useRef } from "react"
 import { useClickOutside } from '@react-hooks-library/core'
 // import useSound from 'use-sound'
 import soundClick from './sounds/mouse-click.mp3'
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group'
+import styled from 'styled-components'
+
 // icon
 import logoIcon from './images/g8dyiy.jpg'
 // wide1~8
@@ -64,7 +69,20 @@ function App() {
                     <div className="tile is-parent is-vertical">
                       <article className="tile is-child notification is-primary">
                         <h1 className="title">Feel free to request!🐤</h1>
-                        <h2 className="subtitle">DM for work request📨</h2>
+                        <h2 className="subtitle">DM for work request📫</h2>
+                        {/* <h2 className="subtitle">Language Proficiency</h2>
+                        <ul>
+                          <li>
+                            <strong>Chinese</strong><span className='has-text-justified'><VscCircleLargeFilled /></span>
+                          </li>
+                          <li>
+                            English
+                          </li>
+                          <li>
+                            Japanese
+                          </li>
+                        </ul> */}
+
                       </article>
                     </div>
                   </div>
@@ -155,6 +173,13 @@ const Humberger = () => {
   const handleVertical = () => setValue("Vertical");
   const handleSquare = () => setValue("Square");
 
+  const transition = {
+    entering: { opacity: 1, color: 'red', transition: 'all 1s ease' },
+    entered: { opacity: 1, color: 'blue' },
+    exiting: { opacity: 0, transition: 'all 1s ease' },
+    exited: { opacity: 0 },
+  }
+
   return (
     <>
       <div>{
@@ -182,19 +207,19 @@ const Humberger = () => {
       }
       </div>
 
-      <nav className="breadcrumb is-start" aria-label="breadcrumbs">
+      <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
           <li><a href='#' onClick={handleLandScape}>Landscape</a></li>
           <li><a href='#' onClick={handleVertical}>Vertical</a></li>
           <li><a href='#' onClick={handleSquare}>Square</a></li>
         </ul>
       </nav>
-      <TransitionGroup className="todo-list">
-        <CSSTransition in={value} timeout={500} className="">
-          <div>{
+      <TransitionGroup className="wrapper">
+        <CSSTransition in={value} timeout={1300} className="slide">
+          <div className="main">{
             value === "Landscape" ? (
               <Fragment>
-                <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
+                <div className='is-flex is-flex-wrap-wrap is-justify-content-center'>
                   <div className='m-3'>
                     <figure className="image-wide">
                       <img src={image1} className="" alt="logo" />
@@ -302,5 +327,43 @@ const Humberger = () => {
     </>
   );
 }
+
+const Root = styled.div`
+  .slide-enter {
+    transform: translateX(100%);
+  }
+  .slide-enter-active {
+    transform: translateX(0%);
+    transition: transform 1500ms ease-in-out;
+  }
+  .slide-exit {
+    transform: translateX(0%);
+  }
+  .slide-exit-active {
+    transform: translateX(-100%);
+    transition: transform 1500ms ease-in-out;
+  }
+  padding: 5px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .wrapper {
+    position: relative;
+    border: slid 1px #444;
+    flex: 1;
+  }
+  .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+  }
+`
 
 export default App;

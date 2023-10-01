@@ -88,6 +88,7 @@ body {
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
+  height: 100%;
   min-height: 94vh;
 }
 
@@ -516,6 +517,7 @@ body {
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
+  height: 100%;
   min-height: 94vh;
 }
 
@@ -8503,7 +8505,15 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   pointer-events: all !important;
 }
 
-.is-slider {
+.is-a-slider {
+  transform: translateX(100%);
+}
+
+.is-a-slider-enter.right {
+  transform: translateX(-100%);
+}
+
+.is-a-slider-enter.left {
   transform: translateX(100%);
 }
 
