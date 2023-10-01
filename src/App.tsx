@@ -2,9 +2,6 @@ import React from 'react';
 import logo from './logo.svg';
 import { css, keyframes } from '@emotion/react'
 import './css/mystyles.css'
-import logoIcon from './images/g8dyiy.jpg'
-import image1 from './images/wide.jpg'
-import image2 from './images/high.jpg'
 import { RiTwitterFill } from 'react-icons/ri'
 import { AiFillGithub } from 'react-icons/ai'
 import { RiTwitterXLine } from 'react-icons/ri'
@@ -13,6 +10,24 @@ import { useEffect, useState, useRef } from "react"
 import { useClickOutside } from '@react-hooks-library/core'
 // import useSound from 'use-sound'
 import soundClick from './sounds/mouse-click.mp3'
+import logoIcon from './images/g8dyiy.jpg'
+import image1 from './images/20231001_215122.jpg'
+import image2 from './images/20231001_215131.jpg'
+import image3 from './images/20231001_215135.jpg'
+import image4 from './images/20231001_215138.jpg'
+import image5 from './images/20231001_215205.jpg'
+import image6 from './images/20231001_215218.jpg'
+import image7 from './images/20231001_215221.jpg'
+import image8 from './images/20231001_215127.jpg'
+import image9 from './images/20231001_215112.jpg'
+import image10 from './images/20231001_215225.jpg'
+import image11 from './images/20231001_215117.jpg'
+import image12 from './images/20231001_215156.jpg'
+import image13 from './images/20231001_215143.jpg'
+import image14 from './images/20231001_215151.jpg'
+import image15 from './images/20231001_215201.jpg'
+import image16 from './images/20231001_215208.jpg'
+import image17 from './images/20231001_215212.jpg'
 
 
 function App() {
@@ -53,7 +68,7 @@ function App() {
           </section>
           <section className="section is-medium">
             <h1 className='title is-4 '>Album</h1>
-            <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between is-unselectable'>
+            <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-baseline is-unselectable'>
               <div className='m-3'>
                 <figure className="image-wide">
                   <img src={image1} className="" alt="logo" />
@@ -61,16 +76,86 @@ function App() {
               </div>
               <div className='m-3'>
                 <figure className="image-wide">
-                  <img src={image1} className="" alt="logo" />
+                  <img src={image2} className="" alt="logo" />
                 </figure>
               </div>
               <div className='m-3'>
                 <figure className="image-wide">
-                  <img src={image1} className="" alt="logo" />
+                  <img src={image3} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image4} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image5} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image6} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image7} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image8} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image9} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image10} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image11} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image12} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image13} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image14} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image15} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image16} className="" alt="logo" />
+                </figure>
+              </div>
+              <div className='m-3'>
+                <figure className="image-wide">
+                  <img src={image17} className="" alt="logo" />
                 </figure>
               </div>
             </div>
-            <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
+            {/* <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
               <div className='m-3'>
                 <figure className="image-long">
                   <img src={image2} className="" alt="logo" />
@@ -96,7 +181,7 @@ function App() {
                   <img src={image2} className="" alt="logo" />
                 </figure>
               </div>
-            </div>
+            </div> */}
           </section>
         </div >
       </body >
