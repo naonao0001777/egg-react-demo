@@ -15,6 +15,7 @@ import { useClickOutside } from '@react-hooks-library/core'
 import soundClick from './sounds/mouse-click.mp3'
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group'
 import styled from 'styled-components'
+import { Helmet } from "react-helmet"
 
 // icon
 import logoIcon from './images/mh2tg9.jpg'
@@ -43,6 +44,23 @@ import image17 from './images/square/17.jpg'
 function App() {
   return (
     <>
+      <Helmet>
+        <title>Egg House</title>
+        <meta
+          name="description"
+          content="Egg's website"
+        />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0"></meta>
+        {/* OGP ここから */}
+        <head prefix="og: http://ogp.me/ns#" />
+        <meta property="og:url" content="https://master--preeminent-scone-5c284b.netlify.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Egg House" />
+        <meta property="og:description" content="Egg's website" />
+        <meta property="og:site_name" content="Egg House" />
+        <meta property="og:image" content="https://github.com/naonao0001777/egg-react/assets/46675984/7158844a-7e57-4c2e-9e31-6c9156e3e2da" />
+        {/* OGP ここまで */}
+      </Helmet>
       <body className='has-background-primary-light is-unselectable max-width'>
         {/* has-background-dark */}
         <div className='container'>
