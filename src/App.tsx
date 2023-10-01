@@ -89,7 +89,7 @@ function App() {
                     <div className="tile is-parent is-vertical">
                       <article className="tile is-child notification is-primary">
                         <h1 className="title">Feel free to request!🐤</h1>
-                        <h2 className="subtitle">お絵描きのご依頼はDMで受け付けています。📫</h2>
+                        <h2 className="subtitle">お絵描きのご依頼はDMでお気軽にお問い合わせください。📫</h2>
                         {/* <h2 className="subtitle">Language Proficiency</h2>
                         <ul>
                           <li>
@@ -201,7 +201,7 @@ const Humberger = () => {
   }
 
   return (
-    <Root>
+    <>
       <div>{
         value === "Landscape" ? (
           <Fragment>
@@ -435,7 +435,7 @@ const Humberger = () => {
           </div>
         </CSSTransition>
       </TransitionGroup>
-    </Root>
+    </>
   );
 }
 

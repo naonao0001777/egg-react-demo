@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
 .section {
   padding: 2rem 2rem;
 }
@@ -73,7 +74,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 code,
@@ -502,7 +503,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 code,
@@ -9416,15 +9417,15 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .is-family-primary {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  font-family: "Nunito", sans-serif !important;
 }
 
 .is-family-secondary {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  font-family: "Nunito", sans-serif !important;
 }
 
 .is-family-sans-serif {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  font-family: "Nunito", sans-serif !important;
 }
 
 .is-family-monospace {

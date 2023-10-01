@@ -1,6 +1,11 @@
 @charset "utf-8";
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+// @import url('https://fonts.google.com/share?selection.family=Pixelify%2BSans');
 
-// sass by mystyle
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+// $family-sans-serif: 'Pixelify Sans', cursive;
 $section-my-padding: 2rem 2rem;
 $section-padding-my-medium: 3rem 3rem;
 $footer-padding-my-style: 1rem 1rem 1rem;
