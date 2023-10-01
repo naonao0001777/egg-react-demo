@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import { css, keyframes } from '@emotion/react'
 import './css/mystyles.css'
 import { RiTwitterFill } from 'react-icons/ri'
-import { AiFillGithub } from 'react-icons/ai'
+import { AiFillGithub, AiFillHeart } from 'react-icons/ai'
 import { RiTwitterXLine } from 'react-icons/ri'
 import { LuMailCheck } from 'react-icons/lu'
 import { IoMail } from 'react-icons/io5'
@@ -17,7 +17,7 @@ import { TransitionGroup, CSSTransition, Transition } from 'react-transition-gro
 import styled from 'styled-components'
 
 // icon
-import logoIcon from './images/g8dyiy.jpg'
+import logoIcon from './images/mh2tg9.jpg'
 // wide1~8
 import image1 from './images/wide/1.jpg'
 import image2 from './images/wide/2.jpg'
@@ -55,7 +55,7 @@ function App() {
                 <div className='m-2'>
                   <h1 className="title">Egg</h1>
                   <h2 className="subtitle">
-                    <strong className=''>Illustrator / Video Editor</strong>
+                    <strong className=''>Like Drawing / Editing Video</strong>
                   </h2>
                   <IconContext.Provider value={{ size: '30px' }}>
                     <a className='' href='https://twitter.com/egg_is_blue' target="_blank" rel="noopener noreferrer">
@@ -209,9 +209,9 @@ const Humberger = () => {
 
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
-          <li><a href='#' onClick={handleLandScape}>Landscape</a></li>
-          <li><a href='#' onClick={handleVertical}>Vertical</a></li>
-          <li><a href='#' onClick={handleSquare}>Square</a></li>
+          <li><a href='javascript:void(0);' onClick={handleLandScape}>Landscape</a></li>
+          <li><a href='javascript:void(0);' onClick={handleVertical}>Vertical</a></li>
+          <li><a href='javascript:void(0);' onClick={handleSquare}>Square</a></li>
         </ul>
       </nav>
       <TransitionGroup className="wrapper">
@@ -219,7 +219,49 @@ const Humberger = () => {
           <div className="main">{
             value === "Landscape" ? (
               <Fragment>
-                <div className='is-flex is-flex-wrap-wrap is-justify-content-center'>
+                <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image1} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image2} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image3} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image4} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image5} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image6} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image7} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image8} className="" alt="logo" />
+                    </figure>
+                  </div>
+                </div>
+                <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
                   <div className='m-3'>
                     <figure className="image-wide">
                       <img src={image1} className="" alt="logo" />
@@ -264,7 +306,29 @@ const Humberger = () => {
               </Fragment>
             ) : value === "Vertical" ? (
               <Fragment>
-                <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
+                <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image9} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image10} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image11} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-long">
+                      <img src={image12} className="" alt="logo" />
+                    </figure>
+                  </div>
+                </div>
+                <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
                   <div className='m-3'>
                     <figure className="image-long">
                       <img src={image9} className="" alt="logo" />
@@ -289,7 +353,34 @@ const Humberger = () => {
               </Fragment>
             ) : value === "Square" ? (
               <Fragment>
-                <div className='is-flex is-flex-wrap-wrap is-justify-content-space-between'>
+                <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image13} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image14} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image15} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image16} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image is-200x200">
+                      <img src={image17} className="" alt="logo" />
+                    </figure>
+                  </div>
+                </div>
+                <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
                   <div className='m-3'>
                     <figure className="image is-200x200">
                       <img src={image13} className="" alt="logo" />
