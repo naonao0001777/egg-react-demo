@@ -43,6 +43,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-
 To learn React, check out the [React documentation](https://reactjs.org/).
-![egghouse](https://github.com/naonao0001777/egg-react/assets/46675984/7158844a-7e57-4c2e-9e31-6c9156e3e2da)
+
+![IMG_20231002_153657](https://github.com/naonao0001777/egg-react/assets/46675984/94a6f2f9-8769-4ac4-807d-e89a9970afdd)
