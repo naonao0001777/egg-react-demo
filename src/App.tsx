@@ -11,8 +11,9 @@ import { VscCircleLargeFilled, VscCircleLarge } from 'react-icons/vsc'
 import { IconContext } from 'react-icons'
 import { useEffect, Fragment, useState, useRef } from "react"
 import { useClickOutside } from '@react-hooks-library/core'
-// import useSound from 'use-sound'
-import soundClick from './sounds/mouse-click.mp3'
+import useSound from 'use-sound'
+import soundClick from './sounds/kako.mp3'
+import soundTwitter from './sounds/ka.mp3'
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group'
 import styled from 'styled-components'
 import { Helmet } from "react-helmet"
@@ -42,6 +43,7 @@ import image17 from './images/square/17.jpg'
 
 
 function App() {
+  const [play, { stop, pause }] = useSound(soundTwitter);
   return (
     <>
       <Helmet>
@@ -78,7 +80,7 @@ function App() {
                     <strong className=''>Like Drawing / Editing Video</strong>
                   </h2>
                   <IconContext.Provider value={{ size: '30px' }}>
-                    <a className='' href='https://twitter.com/egg_is_blue' target="_blank" rel="noopener noreferrer">
+                    <a className='' href='https://twitter.com/egg_is_blue' onClick={play} target="_blank" rel="noopener noreferrer">
                       <RiTwitterXLine />
                     </a>
                   </IconContext.Provider>
@@ -110,7 +112,7 @@ const MainIllusts = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => { setShow(true) };
-  // const [play, {stop, pause}] = useSound(soundClick);
+
   const ref = useRef(null)
   useClickOutside(ref, () => {
     setShow(false)
@@ -177,6 +179,7 @@ const Humberger = () => {
   const handleLandScape = () => setValue("Landscape");
   const handleVertical = () => setValue("Vertical");
   const handleSquare = () => setValue("Square");
+  const [play, { stop, pause }] = useSound(soundClick);
 
   const transition = {
     entering: { opacity: 1, color: 'red', transition: 'all 1s ease' },
@@ -214,9 +217,9 @@ const Humberger = () => {
 
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
-          <li><a href='javascript:void(0);' onClick={handleLandScape}>Landscape</a></li>
-          <li><a href='javascript:void(0);' onClick={handleVertical}>Vertical</a></li>
-          <li><a href='javascript:void(0);' onClick={handleSquare}>Square</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); }}>Landscape</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); }}>Vertical</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); }}>Square</a></li>
         </ul>
       </nav>
       <TransitionGroup className="wrapper">
