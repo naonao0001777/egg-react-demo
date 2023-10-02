@@ -268,6 +268,11 @@ const Humberger = () => {
                       <img src={image8} className="" alt="logo" />
                     </figure>
                   </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      {/* <img src={image8} className="" alt="logo" /> */}
+                    </figure>
+                  </div>
                 </div>
                 <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
                   <div className='m-3'>
