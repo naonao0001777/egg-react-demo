@@ -83,26 +83,12 @@ function App() {
                     </a>
                   </IconContext.Provider>
                 </div>
-
                 <div className="tile is-vertical is-4">
                   <div className="tile">
                     <div className="tile is-parent is-vertical">
                       <article className="tile is-child notification is-primary">
                         <h1 className="title">Feel free to request!🐤</h1>
                         <h2 className="subtitle">お絵描きのご依頼はDMでお気軽にお問い合わせください。📫</h2>
-                        {/* <h2 className="subtitle">Language Proficiency</h2>
-                        <ul>
-                          <li>
-                            <strong>Chinese</strong><span className='has-text-justified'><VscCircleLargeFilled /></span>
-                          </li>
-                          <li>
-                            English
-                          </li>
-                          <li>
-                            Japanese
-                          </li>
-                        </ul> */}
-
                       </article>
                     </div>
                   </div>
@@ -118,7 +104,6 @@ function App() {
     </>
   );
 }
-
 
 // ワイドモーダルコンポーネント
 const MainIllusts = () => {
