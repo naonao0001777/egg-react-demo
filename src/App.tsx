@@ -13,7 +13,7 @@ import { useEffect, Fragment, useState, useRef } from "react"
 import { useClickOutside } from '@react-hooks-library/core'
 import useSound from 'use-sound'
 import soundClick from './sounds/kako.mp3'
-import soundTwitter from './sounds/ka.mp3'
+import soundTwitter from './sounds/koka.mp3'
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group'
 import styled from 'styled-components'
 import { Helmet } from "react-helmet"
