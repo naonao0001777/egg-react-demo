@@ -7,6 +7,8 @@ import { AiFillGithub, AiFillHeart } from 'react-icons/ai'
 import { RiTwitterXLine } from 'react-icons/ri'
 import { LuMailCheck } from 'react-icons/lu'
 import { IoMail } from 'react-icons/io5'
+import { BsFillSunFill } from 'react-icons/bs'
+import { FiMoon } from 'react-icons/fi'
 import { VscCircleLargeFilled, VscCircleLarge } from 'react-icons/vsc'
 import { IconContext } from 'react-icons'
 import { useEffect, Fragment, useState, useRef } from "react"
@@ -14,9 +16,12 @@ import { useClickOutside } from '@react-hooks-library/core'
 import useSound from 'use-sound'
 import soundClick from './sounds/kako.mp3'
 import soundTwitter from './sounds/koka.mp3'
+import soundModeToggle from './sounds/pico.mp3'
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group'
 import styled from 'styled-components'
 import { Helmet } from "react-helmet"
+import { useCookies } from "react-cookie"
+import { CookieSetOptions } from "universal-cookie";
 
 // icon
 import logoIcon from './images/mh2tg9.jpg'
@@ -43,7 +48,19 @@ import image17 from './images/square/17.jpg'
 
 
 function App() {
-  const [play, { stop, pause }] = useSound(soundTwitter);
+  const [twitterSoundPlay, { stop, pause }] = useSound(soundTwitter);
+  const [modeSoundPlay] = useSound(soundModeToggle);
+  const [cookies, setCookie, removeCookie] = useCookies(["mode"]);
+  const [mode, setMode] = useState(!cookies.mode);
+  const options: CookieSetOptions = {
+    maxAge: 60 * 60 * 24
+  }
+
+  const modeToggle = () => {
+    setMode(!mode);
+    setCookie("mode", mode, options);
+    modeSoundPlay();
+  }
   return (
     <>
       <Helmet>
@@ -65,8 +82,12 @@ function App() {
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🐤</text></svg>"></link>
         <meta name="twitter:card" content="summary" />
       </Helmet>
-      <body className='has-background-primary-light is-unselectable max-width'>
-        {/* has-background-dark */}
+      <body className={mode ? 'has-background-primary-light is-unselectable max-width' : 'has-background-black-ter is-unselectable max-width'}>
+        <nav className={mode ? 'navbar has-background-primary-light is-unselectable max-width' : 'navbar has-background-black-ter is-unselectable max-width'} role="navigation" aria-label="main navigation">
+          <IconContext.Provider value={{ size: '40px' }}>
+            {mode ? <BsFillSunFill onClick={() => { modeToggle(); }} className='m-2' /> : <FiMoon onClick={() => { modeToggle(); }} className='m-2 has-text-light' />}
+          </IconContext.Provider>
+        </nav>
         <div className='container'>
           <section className="section is-medium">
             <div className='is-flex is-justify-content-flex-start'>
@@ -75,12 +96,12 @@ function App() {
                   <img src={logoIcon} className="is-rounded" alt="logo" />
                 </figure>
                 <div className='m-2'>
-                  <h1 className="title">Egg</h1>
+                  <h1 className={mode ? "title" : "title has-text-primary-light"} >Egg</h1>
                   <h2 className="subtitle">
-                    <strong className=''>Like Drawing / Editing Video</strong>
+                    <strong className={mode ? "subtitle" : "subtitle has-text-primary-light"}>Like Drawing / Editing Video</strong>
                   </h2>
                   <IconContext.Provider value={{ size: '30px' }}>
-                    <a className='' href='https://twitter.com/egg_is_blue' onClick={play} target="_blank" rel="noopener noreferrer">
+                    <a className='' href='https://twitter.com/egg_is_blue' onClick={twitterSoundPlay} target="_blank" rel="noopener noreferrer">
                       <RiTwitterXLine />
                     </a>
                   </IconContext.Provider>
@@ -88,7 +109,7 @@ function App() {
                 <div className="tile is-vertical is-4">
                   <div className="tile">
                     <div className="tile is-parent is-vertical">
-                      <article className="tile is-child notification is-primary">
+                      <article className={mode ? "tile is-child notification is-primary" : "tile is-child notification is-info"}>
                         <h1 className="title">Feel free to request!🐤</h1>
                         <h2 className="subtitle">お絵描きのご依頼はDMでお気軽にお問い合わせください。📫</h2>
                       </article>
@@ -171,22 +192,28 @@ const SubIllust = () => {
     </>
   );
 }
+const FragmentItem = () => {
+  return null
+}
 
 // ハンバーガー表示切替
 const Humberger = () => {
   const [value, setValue] = useState("Landscape")
-
+  const [a, setA] = useState(false)
+  const handleA = () => setA(!a);
   const handleLandScape = () => setValue("Landscape");
   const handleVertical = () => setValue("Vertical");
   const handleSquare = () => setValue("Square");
   const [play, { stop, pause }] = useSound(soundClick);
 
-  const transition = {
-    entering: { opacity: 1, color: 'red', transition: 'all 1s ease' },
-    entered: { opacity: 1, color: 'blue' },
+  const transitiona = {
+    entering: { opacity: 1, transition: 'all 1s ease' },
+    entered: { opacity: 1 },
     exiting: { opacity: 0, transition: 'all 1s ease' },
     exited: { opacity: 0 },
   }
+
+  const nodeRef = useRef(null)
 
   return (
     <>
@@ -214,260 +241,268 @@ const Humberger = () => {
         )
       }
       </div>
-
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
-          <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); }}>Landscape</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); }}>Vertical</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); }}>Square</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); handleA(); }}>Landscape</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); handleA(); }}>Vertical</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleA(); }}>Square</a></li>
         </ul>
       </nav>
-      <TransitionGroup className="wrapper">
-        <CSSTransition in={value} timeout={1300} className="slide">
-          <div className="main">{
-            value === "Landscape" ? (
-              <Fragment>
-                <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image1} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image2} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image3} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image4} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image5} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image6} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image7} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image8} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      {/* <img src={image8} className="" alt="logo" /> */}
-                    </figure>
-                  </div>
+      <Transition
+        in={a}
+        // key={value}
+        nodeRef={nodeRef}
+        timeout={1000}
+        className={transitiona}>
+        {
+          value === "Landscape" ? (
+            <div ref={nodeRef}>
+              <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image1} className="" alt="logo" />
+                  </figure>
                 </div>
-                <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image1} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image2} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image3} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image4} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image5} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image6} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image7} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-wide">
-                      <img src={image8} className="" alt="logo" />
-                    </figure>
-                  </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image2} className="" alt="logo" />
+                  </figure>
                 </div>
-              </Fragment>
-            ) : value === "Vertical" ? (
-              <Fragment>
-                <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image9} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image10} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image11} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image12} className="" alt="logo" />
-                    </figure>
-                  </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image3} className="" alt="logo" />
+                  </figure>
                 </div>
-                <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image9} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image10} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image11} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image-long">
-                      <img src={image12} className="" alt="logo" />
-                    </figure>
-                  </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image4} className="" alt="logo" />
+                  </figure>
                 </div>
-              </Fragment>
-            ) : value === "Square" ? (
-              <Fragment>
-                <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image13} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image14} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image15} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image16} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image17} className="" alt="logo" />
-                    </figure>
-                  </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image5} className="" alt="logo" />
+                  </figure>
                 </div>
-                <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image13} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image14} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image15} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image16} className="" alt="logo" />
-                    </figure>
-                  </div>
-                  <div className='m-3'>
-                    <figure className="image is-200x200">
-                      <img src={image17} className="" alt="logo" />
-                    </figure>
-                  </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image6} className="" alt="logo" />
+                  </figure>
                 </div>
-              </Fragment>
-            ) : (
-              <></>
-            )
-          }
-          </div>
-        </CSSTransition>
-      </TransitionGroup>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image7} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image8} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                  </figure>
+                </div>
+              </div>
+              <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image1} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image2} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image3} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image4} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image5} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image6} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image7} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-wide">
+                    <img src={image8} className="" alt="logo" />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          ) : value === "Vertical" ? (
+            <Fragment>
+              <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image9} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image10} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image11} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image12} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-long">
+                  </figure>
+                </div>
+              </div>
+              <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image9} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image10} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image11} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image-long">
+                    <img src={image12} className="" alt="logo" />
+                  </figure>
+                </div>
+              </div>
+            </Fragment>
+          ) : value === "Square" ? (
+            <Fragment>
+              <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image13} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image14} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image15} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image16} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image17} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                  </figure>
+                </div>
+              </div>
+              <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image13} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image14} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image15} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image16} className="" alt="logo" />
+                  </figure>
+                </div>
+                <div className='m-3'>
+                  <figure className="image is-200x200">
+                    <img src={image17} className="" alt="logo" />
+                  </figure>
+                </div>
+              </div>
+            </Fragment>
+          ) : (
+            <></>
+          )
+        }
+      </Transition>
     </>
   );
 }
 
 const Root = styled.div`
-  .slide-enter {
-    transform: translateX(100%);
+      .slide-enter {
+        transform: translateX(100%);
   }
-  .slide-enter-active {
-    transform: translateX(0%);
-    transition: transform 1500ms ease-in-out;
+      .slide-enter-active {
+        transform: translateX(0%);
+      transition: transform 1500ms ease-in-out;
   }
-  .slide-exit {
-    transform: translateX(0%);
+      .slide-exit {
+        transform: translateX(0%);
   }
-  .slide-exit-active {
-    transform: translateX(-100%);
-    transition: transform 1500ms ease-in-out;
+      .slide-exit-active {
+        transform: translateX(-100%);
+      transition: transform 1500ms ease-in-out;
   }
-  padding: 5px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  .tabs {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+      padding: 5px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      .tabs {
+        display: grid;
+      grid-template-columns: repeat(4, 1fr);
   }
-  .wrapper {
-    position: relative;
-    border: slid 1px #444;
-    flex: 1;
+      .wrapper {
+        position: relative;
+      border: slid 1px #444;
+      flex: 1;
   }
-  .main {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 10px;
+      .main {
+        position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px;
   }
-`
+      `
 
 export default App;
