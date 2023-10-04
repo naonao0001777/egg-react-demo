@@ -53,7 +53,8 @@ function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["mode"]);
   const [mode, setMode] = useState(!cookies.mode);
   const options: CookieSetOptions = {
-    maxAge: 60 * 60 * 24
+    // cookie有効期間 1週間
+    maxAge: 60 * 60 * 24 * 7
   }
 
   const modeToggle = () => {
@@ -85,7 +86,7 @@ function App() {
       <body className={mode ? 'has-background-primary-light is-unselectable max-width' : 'has-background-black-ter is-unselectable max-width'}>
         <nav className={mode ? 'navbar has-background-primary-light is-unselectable max-width' : 'navbar has-background-black-ter is-unselectable max-width'} role="navigation" aria-label="main navigation">
           <IconContext.Provider value={{ size: '40px' }}>
-            {mode ? <BsFillSunFill onClick={() => { modeToggle(); }} className='m-2' /> : <FiMoon onClick={() => { modeToggle(); }} className='m-2 has-text-light' />}
+            {mode ? <BsFillSunFill onClick={() => { modeToggle(); }} className='m-2 toggleIcon has-text-warning' /> : <FiMoon onClick={() => { modeToggle(); }} className='m-2 has-text-warning-light toggleIcon' />}
           </IconContext.Provider>
         </nav>
         <div className='container'>
@@ -248,7 +249,7 @@ const Humberger = () => {
           <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleA(); }}>Square</a></li>
         </ul>
       </nav>
-      <Transition
+      <CSSTransition
         in={a}
         // key={value}
         nodeRef={nodeRef}
@@ -256,7 +257,7 @@ const Humberger = () => {
         className={transitiona}>
         {
           value === "Landscape" ? (
-            <div ref={nodeRef}>
+            <div ref={nodeRef} className='slideAlbum'>
               <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
                 <div className='m-3'>
                   <figure className="image-wide">
@@ -369,10 +370,6 @@ const Humberger = () => {
                     <img src={image12} className="" alt="logo" />
                   </figure>
                 </div>
-                <div className='m-3'>
-                  <figure className="image-long">
-                  </figure>
-                </div>
               </div>
               <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
                 <div className='m-3'>
@@ -462,7 +459,7 @@ const Humberger = () => {
             <></>
           )
         }
-      </Transition>
+      </CSSTransition>
     </>
   );
 }
