@@ -80,12 +80,12 @@ function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0"></meta>
         {/* OGP ここから */}
         <head prefix="og: http://ogp.me/ns#" />
-        <meta property="og:url" content="https://master--preeminent-scone-5c284b.netlify.app/" />
+        <meta property="og:url" content="https://egghouse.netlify.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Egg House" />
         <meta property="og:description" content="Egg's website" />
         <meta property="og:site_name" content="Egg House" />
-        <meta property="og:image" content="https://github.com/naonao0001777/egg-react/assets/46675984/7158844a-7e57-4c2e-9e31-6c9156e3e2da" />
+        <meta property="og:image" content="https://github.com/naonao0001777/egg-react/assets/46675984/82c8bc23-7fe1-4a92-b2b5-fe471eb82f3c" />
         {/* OGP ここまで */}
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🐤</text></svg>"></link>
         <meta name="twitter:card" content="summary" />
