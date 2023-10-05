@@ -16,7 +16,8 @@ import { useClickOutside } from '@react-hooks-library/core'
 import useSound from 'use-sound'
 import soundClick from './sounds/kako.mp3'
 import soundTwitter from './sounds/koka.mp3'
-import soundModeToggle from './sounds/pico.mp3'
+import soundModeMoon from './sounds/pyuri.mp3'
+import soundModeSun from './sounds/pico.mp3'
 import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group'
 import styled from 'styled-components'
 import { Helmet } from "react-helmet"
@@ -48,8 +49,9 @@ import image17 from './images/square/17.jpg'
 
 
 function App() {
-  const [twitterSoundPlay, { stop, pause }] = useSound(soundTwitter);
-  const [modeSoundPlay] = useSound(soundModeToggle);
+  const [twitterSoundPlay, { stop, pause }] = useSound(soundTwitter, { volume: 0.5 });
+  const [modeSoundPlayM] = useSound(soundModeMoon, { volume: 0.3 });
+  const [modeSoundPlayS] = useSound(soundModeSun, { volume: 0.3 });
   const [cookies, setCookie, removeCookie] = useCookies(["mode"]);
   const [mode, setMode] = useState(!cookies.mode);
   const options: CookieSetOptions = {
@@ -60,7 +62,7 @@ function App() {
   const modeToggle = () => {
     setMode(!mode);
     setCookie("mode", mode, options);
-    modeSoundPlay();
+    modeSoundPlayM();
   }
   return (
     <>
@@ -205,7 +207,7 @@ const Humberger = () => {
   const handleLandScape = () => setValue("Landscape");
   const handleVertical = () => setValue("Vertical");
   const handleSquare = () => setValue("Square");
-  const [play, { stop, pause }] = useSound(soundClick);
+  const [play, { stop, pause }] = useSound(soundClick, { volume: 0.5 });
 
   const transitiona = {
     entering: { opacity: 1, transition: 'all 1s ease' },
@@ -249,104 +251,106 @@ const Humberger = () => {
           <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleA(); }}>Square</a></li>
         </ul>
       </nav>
-      <CSSTransition
-        in={a}
-        // key={value}
-        nodeRef={nodeRef}
-        timeout={1000}
-        className={transitiona}>
+      <TransitionGroup className="wrapper">
         {
           value === "Landscape" ? (
-            <div ref={nodeRef} className='slideAlbum'>
-              <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image1} className="" alt="logo" />
-                  </figure>
+            <CSSTransition
+              in={a}
+              key={value}
+              nodeRef={nodeRef}
+              timeout={1000}
+              className="slide">
+              <div ref={nodeRef} className='slideAlbum'>
+                <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image1} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image2} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image3} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image4} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image5} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image6} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image7} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image8} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                    </figure>
+                  </div>
                 </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image2} className="" alt="logo" />
-                  </figure>
+                <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image1} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image2} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image3} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image4} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image5} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image6} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image7} className="" alt="logo" />
+                    </figure>
+                  </div>
+                  <div className='m-3'>
+                    <figure className="image-wide">
+                      <img src={image8} className="" alt="logo" />
+                    </figure>
+                  </div>
                 </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image3} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image4} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image5} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image6} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image7} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image8} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                  </figure>
-                </div>
-              </div>
-              <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image1} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image2} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image3} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image4} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image5} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image6} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image7} className="" alt="logo" />
-                  </figure>
-                </div>
-                <div className='m-3'>
-                  <figure className="image-wide">
-                    <img src={image8} className="" alt="logo" />
-                  </figure>
-                </div>
-              </div>
-            </div>
+              </div >
+            </CSSTransition>
           ) : value === "Vertical" ? (
             <Fragment>
               <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
@@ -459,7 +463,7 @@ const Humberger = () => {
             <></>
           )
         }
-      </CSSTransition>
+      </TransitionGroup>
     </>
   );
 }
