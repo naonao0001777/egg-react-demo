@@ -59,6 +59,10 @@
   pointer-events: all !important;
 }
 
+.slide {
+  transition: all 4s;
+}
+
 .slide-enter {
   opacity: 0;
   transform: translateX(-100%);
@@ -8554,6 +8558,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .is-clickable {
   cursor: pointer !important;
   pointer-events: all !important;
+}
+
+.slide {
+  transition: all 4s;
 }
 
 .slide-enter {

@@ -85,7 +85,7 @@ function App() {
         <meta property="og:title" content="Egg House" />
         <meta property="og:description" content="Egg's website" />
         <meta property="og:site_name" content="Egg House" />
-        <meta property="og:image" content="https://github.com/naonao0001777/egg-react/assets/46675984/82c8bc23-7fe1-4a92-b2b5-fe471eb82f3c" />
+        <meta property="og:image" content="https://github.com/naonao0001777/egg-react/assets/46675984/d2d536c5-bb63-4fea-868f-e0411500c5a4" />
         {/* OGP ここまで */}
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🐤</text></svg>"></link>
         <meta name="twitter:card" content="summary" />
@@ -274,21 +274,21 @@ const Humberger: React.FC = () => {
       <TransitionGroup className="wrapper">
         {
           value === "Landscape" ? (
-            <CSSTransition key={"Landscape"} nodeRef={nodeRef} timeout={300} className="slide">
-              <LandScape ref={nodeRef}/>
+            <CSSTransition key={"Landscape"} nodeRef={nodeRef} timeout={200} className="slide">
+              <LandScape ref={nodeRef} />
             </CSSTransition>
           ) : value === "Vertical" ? (
-            <CSSTransition>
+            <CSSTransition key={value} nodeRef={nodeRef} timeout={200} className="slide">
               <Vertical />
             </CSSTransition>
           ) : value === "Square" ? (
-            <CSSTransition>
+            <CSSTransition key={value} nodeRef={nodeRef} timeout={200} className="slide">
               <Square />
             </CSSTransition>
           ) :
             <></>
         }
-      </TransitionGroup>
+      </TransitionGroup >
     </>
   );
 }

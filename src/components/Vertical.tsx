@@ -5,9 +5,9 @@ import image10 from '../images/long/10.jpg'
 import image11 from '../images/long/11.jpg'
 import image12 from '../images/long/12.jpg'
 
-function Vertical() {
+const Vertical = React.forwardRef<HTMLDivElement>((props, ref) => {
     return (
-        <>
+        <div ref={ref}>
             <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
                 <div className='m-3'>
                     <figure className="image-long">
@@ -52,8 +52,8 @@ function Vertical() {
                     </figure>
                 </div>
             </div>
-        </>
+        </div>
     )
-}
+})
 
 export default Vertical;

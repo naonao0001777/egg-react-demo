@@ -6,9 +6,9 @@ import image15 from '../images/square/15.jpg'
 import image16 from '../images/square/16.jpg'
 import image17 from '../images/square/17.jpg'
 
-function Square() {
+const Square = React.forwardRef<HTMLDivElement>((props, ref) => {
     return (
-        <>
+        <div ref={ref}>
             <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
                 <div className='m-3'>
                     <figure className="image is-200x200">
@@ -67,8 +67,8 @@ function Square() {
                     </figure>
                 </div>
             </div>
-        </>
+        </div>
     )
-}
+})
 
 export default Square;

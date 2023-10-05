@@ -10,9 +10,10 @@ import image6 from '../images/wide/6.jpg'
 import image7 from '../images/wide/7.jpg'
 import image8 from '../images/wide/8.jpg'
 
-const LandScape = React.forwardRef((props, ref) => {
+const LandScape = React.forwardRef<HTMLDivElement>((props, ref) => {
+
     return (
-        <div>
+        <div ref={ref}>
             <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
                 <div className='m-3'>
                     <figure className="image-wide">
