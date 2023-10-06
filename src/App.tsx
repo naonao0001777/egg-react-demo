@@ -209,7 +209,7 @@ const FragmentItem = () => {
 
 // ハンバーガー表示切替
 const Humberger: React.FC = () => {
-  const [value, setValue] = useState("All")
+  const [value, setValue] = useState("Landscape")
   const [a, setA] = useState(false)
   const [b, setB] = useState(false)
   const [c, setC] = useState(false)
@@ -234,34 +234,27 @@ const Humberger: React.FC = () => {
   return (
     <>
       <div>{
-        value === "All" ? (
+        value === "Landscape" ? (
           <Fragment>
             <h1 className='title is-4 tag is-dark'>
-              All
+              Landscape
             </h1>
           </Fragment>
-        ) :
-          value === "Landscape" ? (
-            <Fragment>
-              <h1 className='title is-4 tag is-dark'>
-                Landscape
-              </h1>
-            </Fragment>
-          ) : value === "Vertical" ? (
-            <Fragment>
-              <h1 className='title is-4 tag is-dark'>
-                Vertical
-              </h1>
-            </Fragment>
-          ) : value === "Square" ? (
-            <Fragment>
-              <h1 className='title is-4 tag is-dark'>
-                Square
-              </h1>
-            </Fragment>
-          ) : (
-            <></>
-          )
+        ) : value === "Vertical" ? (
+          <Fragment>
+            <h1 className='title is-4 tag is-dark'>
+              Vertical
+            </h1>
+          </Fragment>
+        ) : value === "Square" ? (
+          <Fragment>
+            <h1 className='title is-4 tag is-dark'>
+              Square
+            </h1>
+          </Fragment>
+        ) : (
+          <></>
+        )
       }
       </div>
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
