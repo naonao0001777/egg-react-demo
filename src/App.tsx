@@ -9,6 +9,9 @@ import { LuMailCheck } from 'react-icons/lu'
 import { IoMail } from 'react-icons/io5'
 import { BsFillSunFill } from 'react-icons/bs'
 import { FiMoon } from 'react-icons/fi'
+import { RiSquareFill } from 'react-icons/ri'
+import { LuRectangleVertical, LuRectangleHorizontal } from 'react-icons/lu'
+import { FaRegSquare } from 'react-icons/fa'
 import { VscCircleLargeFilled, VscCircleLarge } from 'react-icons/vsc'
 import { IconContext } from 'react-icons'
 import { useEffect, Fragment, useState, useRef } from "react"
@@ -18,7 +21,7 @@ import soundClick from './sounds/kako.mp3'
 import soundTwitter from './sounds/koka.mp3'
 import soundModeMoon from './sounds/pyuri.mp3'
 import soundModeSun from './sounds/pico.mp3'
-import { TransitionGroup, CSSTransition, Transition } from 'react-transition-group'
+import { TransitionGroup, CSSTransition, Transition, SwitchTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import { Helmet } from "react-helmet"
 import { useCookies } from "react-cookie"
@@ -85,7 +88,7 @@ function App() {
         <meta property="og:title" content="Egg House" />
         <meta property="og:description" content="Egg's website" />
         <meta property="og:site_name" content="Egg House" />
-        <meta property="og:image" content="https://github.com/naonao0001777/egg-react/assets/46675984/d2d536c5-bb63-4fea-868f-e0411500c5a4" />
+        <meta property="og:image" content="https://github.com/naonao0001777/egg-react/assets/46675984/55081bf4-f2a2-4fa6-b460-54b6a5c5d802" />
         {/* OGP ここまで */}
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🐤</text></svg>"></link>
         <meta name="twitter:card" content="summary" />
@@ -206,9 +209,14 @@ const FragmentItem = () => {
 
 // ハンバーガー表示切替
 const Humberger: React.FC = () => {
-  const [value, setValue] = useState("Landscape")
+  const [value, setValue] = useState("All")
   const [a, setA] = useState(false)
-  const handleA = () => setA(!a);
+  const [b, setB] = useState(false)
+  const [c, setC] = useState(false)
+  const handleA = () => { setA(true); setB(false); setC(false) };
+  const handleB = () => { setB(true); setA(false); setC(false) };
+  const handleC = () => { setC(true); setA(false); setB(false) };
+  const handleAll = () => setValue("All");
   const handleLandScape = () => setValue("Landscape");
   const handleVertical = () => setValue("Vertical");
   const handleSquare = () => setValue("Square");
@@ -226,34 +234,41 @@ const Humberger: React.FC = () => {
   return (
     <>
       <div>{
-        value === "Landscape" ? (
+        value === "All" ? (
           <Fragment>
             <h1 className='title is-4 tag is-dark'>
-              Landscape
+              All
             </h1>
           </Fragment>
-        ) : value === "Vertical" ? (
-          <Fragment>
-            <h1 className='title is-4 tag is-dark'>
-              Vertical
-            </h1>
-          </Fragment>
-        ) : value === "Square" ? (
-          <Fragment>
-            <h1 className='title is-4 tag is-dark'>
-              Square
-            </h1>
-          </Fragment>
-        ) : (
-          <></>
-        )
+        ) :
+          value === "Landscape" ? (
+            <Fragment>
+              <h1 className='title is-4 tag is-dark'>
+                Landscape
+              </h1>
+            </Fragment>
+          ) : value === "Vertical" ? (
+            <Fragment>
+              <h1 className='title is-4 tag is-dark'>
+                Vertical
+              </h1>
+            </Fragment>
+          ) : value === "Square" ? (
+            <Fragment>
+              <h1 className='title is-4 tag is-dark'>
+                Square
+              </h1>
+            </Fragment>
+          ) : (
+            <></>
+          )
       }
       </div>
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
           <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); handleA(); }}>Landscape</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); handleA(); }}>Vertical</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleA(); }}>Square</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); handleB(); }}>Vertical</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleC(); }}>Square</a></li>
         </ul>
       </nav>
       {/* <BrowserRouter>
@@ -271,64 +286,60 @@ const Humberger: React.FC = () => {
           }
         </Routes>
       </BrowserRouter > */}
-      <TransitionGroup className="wrapper">
-        {
-          value === "Landscape" ? (
-            <CSSTransition key={"Landscape"} nodeRef={nodeRef} timeout={200} className="slide">
-              <LandScape ref={nodeRef} />
-            </CSSTransition>
-          ) : value === "Vertical" ? (
-            <CSSTransition key={value} nodeRef={nodeRef} timeout={200} className="slide">
+      <TransitionGroup classNames="wrapper">
+        <CSSTransition key={value} nodeRef={nodeRef} timeout={1000} classNames="slide">
+          {
+            value === "Landscape" ? (
+              <LandScape />
+            ) : value === "Vertical" ? (
               <Vertical />
-            </CSSTransition>
-          ) : value === "Square" ? (
-            <CSSTransition key={value} nodeRef={nodeRef} timeout={200} className="slide">
+            ) : value === "Square" ? (
               <Square />
-            </CSSTransition>
-          ) :
-            <></>
-        }
+            ) :
+              <></>
+          }
+        </CSSTransition>
       </TransitionGroup >
     </>
   );
 }
 
 const Root = styled.div`
-      .slide-enter {
-        transform: translateX(100%);
+        .slide-enter {
+          transform: translateX(100%);
   }
-      .slide-enter-active {
-        transform: translateX(0%);
-      transition: transform 1500ms ease-in-out;
+        .slide-enter-active {
+          transform: translateX(0%);
+        transition: transform 1500ms ease-in-out;
   }
-      .slide-exit {
-        transform: translateX(0%);
+        .slide-exit {
+          transform: translateX(0%);
   }
-      .slide-exit-active {
-        transform: translateX(-100%);
-      transition: transform 1500ms ease-in-out;
+        .slide-exit-active {
+          transform: translateX(-100%);
+        transition: transform 1500ms ease-in-out;
   }
-      padding: 5px;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      .tabs {
-        display: grid;
-      grid-template-columns: repeat(4, 1fr);
+        padding: 5px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        .tabs {
+          display: grid;
+        grid-template-columns: repeat(4, 1fr);
   }
-      .wrapper {
-        position: relative;
-      border: slid 1px #444;
-      flex: 1;
+        .wrapper {
+          position: relative;
+        border: slid 1px #444;
+        flex: 1;
   }
-      .main {
-        position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 10px;
+        .main {
+          position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px;
   }
-      `
+        `
 
 export default App;
