@@ -4,14 +4,15 @@ import { css, keyframes } from '@emotion/react'
 import './css/mystyles.css'
 import { RiTwitterFill } from 'react-icons/ri'
 import { AiFillGithub, AiFillHeart } from 'react-icons/ai'
-import { RiTwitterXLine } from 'react-icons/ri'
+import { RiTwitterXLine, RiRectangleFill } from 'react-icons/ri'
+import { TbRectangleVerticalFilled } from 'react-icons/tb'
 import { LuMailCheck } from 'react-icons/lu'
 import { IoMail } from 'react-icons/io5'
 import { BsFillSunFill } from 'react-icons/bs'
 import { FiMoon } from 'react-icons/fi'
 import { RiSquareFill } from 'react-icons/ri'
 import { LuRectangleVertical, LuRectangleHorizontal } from 'react-icons/lu'
-import { FaRegSquare } from 'react-icons/fa'
+import { FaGripVertical, FaRegSquare } from 'react-icons/fa'
 import { VscCircleLargeFilled, VscCircleLarge } from 'react-icons/vsc'
 import { IconContext } from 'react-icons'
 import { useEffect, Fragment, useState, useRef } from "react"
@@ -259,9 +260,9 @@ const Humberger: React.FC = () => {
       </div>
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
-          <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); handleA(); }}>Landscape</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); handleB(); }}>Vertical</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleC(); }}>Square</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); handleA(); }}>{value === "Landscape" ? <span className="tag is-link shapeTag">Landscape</span> : <span className="tag is-primary is-light">Landscape</span>}</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); handleB(); }}>{value === "Vertical" ? <span className="tag is-link shapeTag">Vertical</span> : <span className="tag is-primary is-light">Vertical</span>}</a></li>
+          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleC(); }}>{value === "Square" ? <span className="tag is-link shapeTag">Square</span> : <span className="tag is-primary is-light">Square</span>}</a></li>
         </ul>
       </nav>
       {/* <BrowserRouter>
@@ -280,7 +281,7 @@ const Humberger: React.FC = () => {
         </Routes>
       </BrowserRouter > */}
       <TransitionGroup classNames="wrapper">
-        <CSSTransition key={value} nodeRef={nodeRef} timeout={1000} classNames="slide">
+        <CSSTransition key={value} nodeRef={nodeRef} timeout={2000} classNames="slide">
           {
             value === "Landscape" ? (
               <LandScape />

@@ -61,11 +61,13 @@
 
 .slide-enter {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
 
 .slide-enter-active {
-  transition: opacity 1s transform 1s;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 500ms, transform 500ms;
 }
 
 .slide-exit {
@@ -74,7 +76,9 @@
 }
 
 .slide-exit-active {
-  transition: opacity 1s transform 1s;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 500ms, transform 500ms;
 }
 
 .toggleIcon {
@@ -85,13 +89,8 @@
   transform: scale(1.1);
 }
 
-.slideAlbum {
-  transition: all 0.3s;
-  opacity: 0;
-}
-.slideAlbum:active {
-  opacity: 1;
-  transform: translateX(100%);
+.shapeTag {
+  transition: all 0.2s;
 }
 
 html {
@@ -8556,11 +8555,13 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .slide-enter {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
 
 .slide-enter-active {
-  transition: opacity 1s transform 1s;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 500ms, transform 500ms;
 }
 
 .slide-exit {
@@ -8569,7 +8570,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .slide-exit-active {
-  transition: opacity 1s transform 1s;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 500ms, transform 500ms;
 }
 
 .toggleIcon {
@@ -8580,13 +8583,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   transform: scale(1.1);
 }
 
-.slideAlbum {
-  transition: all 0.3s;
-  opacity: 0;
-}
-.slideAlbum:active {
-  opacity: 1;
-  transform: translateX(100%);
+.shapeTag {
+  transition: all 0.2s;
 }
 
 .is-clipped {
