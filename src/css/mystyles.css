@@ -91,6 +91,7 @@
 
 .shapeTag {
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 html {
@@ -8585,6 +8586,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .shapeTag {
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .is-clipped {

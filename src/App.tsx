@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import { css, keyframes } from '@emotion/react'
+import { ClassNames, css, keyframes } from '@emotion/react'
 import './css/mystyles.css'
 import { RiTwitterFill } from 'react-icons/ri'
 import { AiFillGithub, AiFillHeart } from 'react-icons/ai'
@@ -260,9 +260,9 @@ const Humberger: React.FC = () => {
       </div>
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
-          <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); handleA(); }}>{value === "Landscape" ? <span className="tag is-link shapeTag">Landscape</span> : <span className="tag is-primary is-light">Landscape</span>}</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); handleB(); }}>{value === "Vertical" ? <span className="tag is-link shapeTag">Vertical</span> : <span className="tag is-primary is-light">Vertical</span>}</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleC(); }}>{value === "Square" ? <span className="tag is-link shapeTag">Square</span> : <span className="tag is-primary is-light">Square</span>}</a></li>
+          <li><span className='mr-2'>{value === "Landscape" ? <span className="tag is-info shapeTag" onClick={() => { handleLandScape(); play(); handleA(); }}>Landscape</span> : <span className="tag is-primary is-light shapeTag" onClick={() => { handleLandScape(); play(); handleA(); }}>Landscape</span>}</span></li>
+          <li><span className='ml-2 mr-2'>{value === "Vertical" ? <span className="tag is-info shapeTag" onClick={() => { handleVertical(); play(); handleB(); }}>Vertical</span> : <span className="tag is-primary is-light shapeTag" onClick={() => { handleVertical(); play(); handleB(); }}>Vertical</span>}</span></li>
+          <li><span className='ml-2'>{value === "Square" ? <span className="tag is-info shapeTag" onClick={() => { handleSquare(); play(); handleC(); }}>Square</span> : <span className="tag is-primary is-light shapeTag" onClick={() => { handleSquare(); play(); handleC(); }}>Square</span>}</span></li>
         </ul>
       </nav>
       {/* <BrowserRouter>
