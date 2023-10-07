@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { useEffect, Fragment, useState, useRef, useMemo } from "react"
 import logo from './logo.svg';
 import { ClassNames, css, keyframes } from '@emotion/react'
 import './css/mystyles.css'
-import { RiTwitterFill } from 'react-icons/ri'
 import { AiFillGithub, AiFillHeart } from 'react-icons/ai'
-import { RiTwitterXLine, RiRectangleFill } from 'react-icons/ri'
+import { RiTwitterXLine, RiRectangleFill, RiTwitterFill, RiSquareFill } from 'react-icons/ri'
 import { TbRectangleVerticalFilled } from 'react-icons/tb'
-import { LuMailCheck } from 'react-icons/lu'
 import { IoMail } from 'react-icons/io5'
 import { BsFillSunFill } from 'react-icons/bs'
 import { FiMoon } from 'react-icons/fi'
-import { RiSquareFill } from 'react-icons/ri'
-import { LuRectangleVertical, LuRectangleHorizontal } from 'react-icons/lu'
+import { LuRectangleVertical, LuRectangleHorizontal, LuMailCheck } from 'react-icons/lu'
 import { FaGripVertical, FaRegSquare } from 'react-icons/fa'
 import { VscCircleLargeFilled, VscCircleLarge } from 'react-icons/vsc'
 import { IconContext } from 'react-icons'
-import { useEffect, Fragment, useState, useRef } from "react"
 import { useClickOutside } from '@react-hooks-library/core'
 import useSound from 'use-sound'
 import soundClick from './sounds/kako.mp3'
@@ -31,6 +27,7 @@ import LandScape from "./components/LandScape"
 import Vertical from "./components/Vertical"
 import Square from "./components/Square"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useOffsetTop } from './useOffsetTop';
 
 // icon
 import logoIcon from './images/mh2tg9.jpg'
@@ -73,6 +70,7 @@ function App() {
     setCookie("mode", mode, options);
     modeSoundPlayM();
   }
+
   return (
     <>
       <Helmet>
@@ -297,43 +295,5 @@ const Humberger: React.FC = () => {
     </>
   );
 }
-
-const Root = styled.div`
-        .slide-enter {
-          transform: translateX(100%);
-  }
-        .slide-enter-active {
-          transform: translateX(0%);
-        transition: transform 1500ms ease-in-out;
-  }
-        .slide-exit {
-          transform: translateX(0%);
-  }
-        .slide-exit-active {
-          transform: translateX(-100%);
-        transition: transform 1500ms ease-in-out;
-  }
-        padding: 5px;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        .tabs {
-          display: grid;
-        grid-template-columns: repeat(4, 1fr);
-  }
-        .wrapper {
-          position: relative;
-        border: slid 1px #444;
-        flex: 1;
-  }
-        .main {
-          position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 10px;
-  }
-        `
 
 export default App;

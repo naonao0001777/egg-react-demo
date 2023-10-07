@@ -90,6 +90,42 @@
   cursor: pointer;
 }
 
+.slide-album-wrapper {
+  /*========= 流体シェイプを動かす ===============*/
+}
+
+.fluid {
+  width: 40vh;
+  height: 40vh;
+  background: #fff100;
+  animation: fluidrotate 30s ease 0s infinite;
+  z-index: -1;
+  position: absolute;
+}
+
+@keyframes fluidrotate {
+  0%, 100% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+  }
+  14% {
+    border-radius: 40% 60% 54% 46%/49% 60% 40% 51%;
+  }
+  28% {
+    border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+  }
+  42% {
+    border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+  }
+  56% {
+    border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+  }
+  70% {
+    border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+  }
+  84% {
+    border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+  }
+}
 html {
   background-color: hsl(0, 0%, 100%);
   font-size: 16px;
@@ -2090,8 +2126,8 @@ div.icon-text {
 }
 
 .image-long {
-  width: 200px;
-  height: 300px;
+  width: 210px;
+  height: 320px;
   position: relative;
   object-position: 100% 100%;
   border-radius: 15px;
@@ -8581,6 +8617,42 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   cursor: pointer;
 }
 
+.slide-album-wrapper {
+  /*========= 流体シェイプを動かす ===============*/
+}
+
+.fluid {
+  width: 40vh;
+  height: 40vh;
+  background: #fff100;
+  animation: fluidrotate 30s ease 0s infinite;
+  z-index: -1;
+  position: absolute;
+}
+
+@keyframes fluidrotate {
+  0%, 100% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+  }
+  14% {
+    border-radius: 40% 60% 54% 46%/49% 60% 40% 51%;
+  }
+  28% {
+    border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+  }
+  42% {
+    border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+  }
+  56% {
+    border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+  }
+  70% {
+    border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+  }
+  84% {
+    border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+  }
+}
 .is-clipped {
   overflow: hidden !important;
 }
