@@ -29,10 +29,6 @@ const Vertical = React.forwardRef<HTMLDivElement>((props, ref) => {
                         <img src={image12} className="" alt="logo" />
                     </figure>
                 </div>
-                <div className='m-3'>
-                    <figure className="image-long">
-                    </figure>
-                </div>
             </div>
             <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
                 <div className='m-3'>
