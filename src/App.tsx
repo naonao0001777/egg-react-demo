@@ -223,14 +223,10 @@ const Humberger: React.FC = () => {
   const handleSquare = () => setValue("Square");
   const [play, { stop, pause }] = useSound(soundClick, { volume: 0.5 });
 
-  const transitiona = {
-    entering: { opacity: 1, transition: 'all 1s ease' },
-    entered: { opacity: 1 },
-    exiting: { opacity: 0, transition: 'all 1s ease' },
-    exited: { opacity: 0 },
-  }
-
-  const nodeRef = useRef(null)
+  const landscapeRef = useRef(null)
+  const verticalRef = useRef(null)
+  const squareRef = useRef(null)
+  const nodeRef = value === "Landscape" ? landscapeRef : value === "Vertical" ? verticalRef : value === "Square" ? squareRef : undefined
 
   return (
     <>
@@ -260,9 +256,9 @@ const Humberger: React.FC = () => {
       </div>
       <nav className="breadcrumb is-start mt-2" aria-label="breadcrumbs">
         <ul>
-          <li><a href='javascript:void(0);' onClick={() => { handleLandScape(); play(); handleA(); }}>{value === "Landscape" ? <span className="tag is-info shapeTag">Landscape</span> : < span className="tag is-primary is-light">Landscape</span>}</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleVertical(); play(); handleB(); }}>{value === "Vertical" ? <span className="tag is-info shapeTag">Vertical</span> : <span className="tag is-primary is-light">Vertical</span>}</a></li>
-          <li><a href='javascript:void(0);' onClick={() => { handleSquare(); play(); handleC(); }}>{value === "Square" ? <span className="tag is-info shapeTag">Square</span> : <span className="tag is-primary is-light">Square</span>}</a></li>
+          <li><span className='mr-2' onClick={() => { handleLandScape(); play(); handleA(); }}>{value === "Landscape" ? <span className="tag is-link shapeTag">Landscape</span> : <span className="tag is-primary is-light shapeTag">Landscape</span>}</span></li>
+          <li><span className='ml-2 mr-2' onClick={() => { handleVertical(); play(); handleB(); }}>{value === "Vertical" ? <span className="tag is-link shapeTag">Vertical</span> : <span className="tag is-primary is-light shapeTag">Vertical</span>}</span></li>
+          <li><span className='ml-2' onClick={() => { handleSquare(); play(); handleC(); }}>{value === "Square" ? <span className="tag is-link shapeTag">Square</span> : <span className="tag is-primary is-light ">Square</span>}</span></li>
         </ul>
       </nav >
       {/* <BrowserRouter>
@@ -280,18 +276,22 @@ const Humberger: React.FC = () => {
           }
         </Routes>
       </BrowserRouter > */}
-      < TransitionGroup classNames="wrapper" >
-        <CSSTransition key={value} nodeRef={nodeRef} timeout={2000} classNames="slide">
-          {
-            value === "Landscape" ? (
-              <LandScape />
-            ) : value === "Vertical" ? (
-              <Vertical />
-            ) : value === "Square" ? (
-              <Square />
-            ) :
-              <></>
-          }
+      <TransitionGroup classNames="wrapper">
+        <CSSTransition key={value} nodeRef={nodeRef} timeout={600} classNames="slide">
+          <div className='slide-album-wrapper'>
+            <div ref={nodeRef} className='slide-album'>
+              {
+                value === "Landscape" ? (
+                  <LandScape />
+                ) : value === "Vertical" ? (
+                  <Vertical />
+                ) : value === "Square" ? (
+                  <Square />
+                ) :
+                  <></>
+              }
+            </div>
+          </div>
         </CSSTransition>
       </TransitionGroup >
     </>
