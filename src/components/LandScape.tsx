@@ -17,88 +17,94 @@ const LandScape = React.forwardRef<HTMLDivElement>((props, ref) => {
             <div className='is-flex-desktop is-hidden-touch is-flex-wrap-wrap is-justify-content-space-between'>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image1} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image2} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image3} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image4} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image5} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image6} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image7} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image8} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
             </div>
             <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image1} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image2} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image3} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image4} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image5} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image6} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image7} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
                 <div className='m-3'>
                     <figure className="image-wide">
-                        <img src={image8} className="" alt="logo" />
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
+                    </figure>
+                </div>
+                <div className='m-3'>
+                    <figure className="image-wide">
+                        <img src="https://placehold.jp/3d4070/ffffff/320x210.png" className="" alt="logo" />
                     </figure>
                 </div>
             </div>
