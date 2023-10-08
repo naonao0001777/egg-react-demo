@@ -256,7 +256,7 @@ const Humberger: React.FC = () => {
         <ul>
           <li><span className='mr-2' onClick={() => { handleLandScape(); play(); handleA(); }}>{value === "Landscape" ? <span className="tag is-link shapeTag">Landscape</span> : <span className="tag is-primary is-light shapeTag">Landscape</span>}</span></li>
           <li><span className='ml-2 mr-2' onClick={() => { handleVertical(); play(); handleB(); }}>{value === "Vertical" ? <span className="tag is-link shapeTag">Vertical</span> : <span className="tag is-primary is-light shapeTag">Vertical</span>}</span></li>
-          <li><span className='ml-2' onClick={() => { handleSquare(); play(); handleC(); }}>{value === "Square" ? <span className="tag is-link shapeTag">Square</span> : <span className="tag is-primary is-light ">Square</span>}</span></li>
+          <li><span className='ml-2' onClick={() => { handleSquare(); play(); handleC(); }}>{value === "Square" ? <span className="tag is-link shapeTag">Square</span> : <span className="tag is-primary is-light shapeTag">Square</span>}</span></li>
         </ul>
       </nav >
       {/* <BrowserRouter>
