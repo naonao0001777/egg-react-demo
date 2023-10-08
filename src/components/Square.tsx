@@ -60,58 +60,8 @@ const Square = React.forwardRef<HTMLDivElement>((props, ref) => {
                         <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
                     </figure>
                 </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
             </div>
             <div className='is-hidden-desktop is-flex-touch is-flex-wrap-wrap is-justify-content-center'>
-            <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
-                <div className='m-3'>
-                    <figure className="image is-200x200">
-                        <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
-                    </figure>
-                </div>
                 <div className='m-3'>
                     <figure className="image is-200x200">
                         <img src="https://placehold.jp/3d4070/ffffff/200x200.png" className="" alt="logo" />
